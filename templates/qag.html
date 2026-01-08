@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Medical AI Chatbot</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ⭐ LEFT SIDEBAR -->
+    <div class="sidebar">
+        <button id="newChatBtn" class="new-chat-btn">+ New Chat</button>
+        <h3 class="sidebar-title">Chats</h3>
+        <div id="chatList" class="chat-list"></div>
+    </div>
+
+    <!-- ⭐ MAIN CHAT AREA -->
+    <div class="chat-area">
+
+        <!-- Chat Title -->
+        <div class="chat-header">
+            <input id="chatTitle" class="chat-title" value="New Chat" />
+            <button id="saveTitleBtn" class="save-title-btn">Save</button>
+        </div>
+
+        <!-- Chat Messages -->
+        <div id="chatbox" class="chatbox"></div>
+
+        <!-- Input Area -->
+        <div id="inputArea" class="input-area">
+            <input type="text" id="query" placeholder="Ask something..." />
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>

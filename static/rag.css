@@ -1,0 +1,267 @@
+/* =========================================================
+   MODERN ASH-WHITE CHAT UI (PRODUCTION READY)
+========================================================= */
+
+/* ------------------ CSS VARIABLES ------------------ */
+:root {
+    --bg-main: #f4f5f7;
+    --bg-sidebar: #ffffff;
+    --bg-chat: #f7f8fa;
+
+    --bg-user: #e9efff;
+    --bg-bot: #ffffff;
+
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+
+    --border-light: #e5e7eb;
+    --accent: #9ca3af;
+
+    --radius-xl: 18px;
+    --radius-lg: 14px;
+    --radius-md: 10px;
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* ------------------ RESET ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    height: 100vh;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+    width: 280px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-light);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* New Chat Button */
+.new-chat-btn {
+    background: #f3f4f6;
+    border: 1px solid var(--border-light);
+    padding: 12px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.new-chat-btn:hover {
+    background: #e5e7eb;
+    transform: translateY(-1px);
+}
+
+/* Sidebar Title */
+.sidebar-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Chat List */
+.chat-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Chat Item */
+.chat-item {
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.chat-item span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.chat-item:hover {
+    background: #f3f4f6;
+}
+
+.chat-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.chat-actions button:hover {
+    opacity: 1;
+}
+
+/* =========================================================
+   CHAT AREA
+========================================================= */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-chat);
+}
+
+/* ------------------ HEADER ------------------ */
+.chat-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--bg-sidebar);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.chat-title {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+}
+
+.save-title-btn {
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    background: #f3f4f6;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.save-title-btn:hover {
+    background: #e5e7eb;
+}
+
+/* ------------------ CHAT BOX ------------------ */
+.chatbox {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ------------------ MESSAGES ------------------ */
+.msg {
+    max-width: 70%;
+    padding: 14px 16px;
+    border-radius: var(--radius-xl);
+    line-height: 1.55;
+    font-size: 14px;
+    box-shadow: var(--shadow-light);
+    animation: fadeIn 0.2s ease-in;
+}
+
+.msg.user {
+    background: var(--bg-user);
+    align-self: flex-end;
+    border-bottom-right-radius: 6px;
+}
+
+.msg.assistant {
+    background: var(--bg-bot);
+    align-self: flex-start;
+    border-bottom-left-radius: 6px;
+}
+
+/* ------------------ INPUT AREA ------------------ */
+.input-area {
+    padding: 16px;
+    background: var(--bg-sidebar);
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    gap: 10px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    font-size: 14px;
+    outline: none;
+}
+
+.input-area input:focus {
+    border-color: var(--accent);
+}
+
+.input-area button {
+    padding: 14px 20px;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    background: #e5e7eb;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.input-area button:hover {
+    background: #d1d5db;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   SCROLLBAR (MINIMAL)
+========================================================= */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
